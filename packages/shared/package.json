@@ -15,5 +15,8 @@
   },
   "devDependencies": {
     "typescript": "^5.7.0"
+  },
+  "dependencies": {
+    "encoding-japanese": "^2.4.0"
   }
 }

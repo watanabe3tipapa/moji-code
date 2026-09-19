@@ -6,6 +6,7 @@ import CodePointCard from "./components/CodePointCard";
 import CodeTable from "./components/CodeTable";
 import FontSelector from "./components/FontSelector";
 import EmojiAnalyzer from "./components/EmojiAnalyzer";
+import ConvertTab from "./components/ConvertTab";
 import ExportBar from "./components/ExportBar";
 
 function SearchPage() {
@@ -103,6 +104,10 @@ function EmojiPage() {
   return <EmojiAnalyzer />;
 }
 
+function ConvertPage() {
+  return <ConvertTab />;
+}
+
 export default function App() {
   return (
     <div className="app">
@@ -115,12 +120,14 @@ export default function App() {
           <Link to="/">検索</Link>
           <Link to="/table">コード表</Link>
           <Link to="/emoji">絵文字</Link>
+          <Link to="/convert">変換</Link>
         </nav>
       </header>
       <Routes>
         <Route path="/" element={<SearchPage />} />
         <Route path="/table" element={<TablePage />} />
         <Route path="/emoji" element={<EmojiAnalyzer />} />
+        <Route path="/convert" element={<ConvertPage />} />
       </Routes>
     </div>
   );

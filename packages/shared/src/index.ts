@@ -42,3 +42,15 @@ export { analyzeEmoji } from "./emoji.js";
 export type { EmojiComponent, EmojiCluster } from "./emoji.js";
 export { normalizeAll, normalizationDiff } from "./normalize.js";
 export type { NormalizationForms } from "./normalize.js";
+export {
+  encodeBytes,
+  decodeBytes,
+  isConvertible,
+  bytesToHex,
+  bytesToHexCompact,
+  bytesToBase64,
+  bytesToSafeString,
+  MOJI_ENCODINGS,
+  ENCODING_LABELS,
+} from "./encoding.js";
+export type { MojiEncoding } from "./encoding.js";

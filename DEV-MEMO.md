@@ -124,6 +124,11 @@ packages/
 ### Phase 6: 応用機能
 
 - [x] 正規化比較（NFC / NFD / NFKC / NFKD → 差分のみ折りたたみ表示）
+- [x] エンコーディング変換（UTF-8 / Shift_JIS / EUC-JP / ISO-2022-JP / UTF-16LE）
+  - Web: `/convert` タブ — テキスト→バイト列（hex/base64）＋バイト列→テキスト逆変換
+  - CLI: `--encode` / `--decode` オプション
+  - 変換不可文字の検出（往復変換チェックで検証）
+  - 使用ライブラリ: `encoding-japanese`（shared にラッパー `encoding.ts` を実装）
 - [x] エクスポート（CSV / JSON ダウンロード）
 - [x] 履歴（localStorage 直近20件、タグクリックで再検索）
 - [x] 各情報のコピーボタン（UTF-8, UTF-16, JS escape, HTML entity）
@@ -141,6 +146,14 @@ node packages/cli/dist/index.js U+1F600
 
 # JSON 出力
 node packages/cli/dist/index.js "あ" --json
+
+# エンコード（テキスト → バイト列 hex / base64）
+node packages/cli/dist/index.js "あいう日本語" --encode SJIS
+node packages/cli/dist/index.js "おはよ" --encode EUCJP --base64
+
+# デコード（hex → テキスト）
+node packages/cli/dist/index.js --decode SJIS "82 A0 82 A2 82 A4"
+node packages/cli/dist/index.js --decode UTF8 "E3 81 82"
 ```
 
 ## 開発サーバー起動
